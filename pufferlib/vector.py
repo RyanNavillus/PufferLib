@@ -128,7 +128,6 @@ class Serial:
             else:
                 o, r, d, t, i = env.step(atns)
 
-            if i:
                 if isinstance(i, list):
                     self.infos.extend(i)
                 else:
@@ -388,9 +387,8 @@ class Multiprocessing:
 
         infos = []
         for i in s_range:
-            if self.infos[i]:
-                infos.extend(self.infos[i])
-                self.infos[i] = []
+            infos.extend(self.infos[i])
+            self.infos[i] = []
 
         agent_ids = self.agent_ids[w_slice].ravel()
         m = buf.masks[w_slice].ravel()
