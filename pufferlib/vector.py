@@ -128,10 +128,10 @@ class Serial:
             else:
                 o, r, d, t, i = env.step(atns)
 
-                if isinstance(i, list):
-                    self.infos.extend(i)
-                else:
-                    self.infos.append(i)
+            if isinstance(i, list):
+                self.infos.extend(i)
+            else:
+                self.infos.append(i)
 
             ptr = end
 
